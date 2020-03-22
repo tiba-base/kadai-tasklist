@@ -1,5 +1,7 @@
-<h1>タスク作成ページ</h1>
+<% if logged_in? %>
+ <h1><%= current_user.name %>のタスク作成ページ</h1>
 
-<%= render 'form', task: @task %>
+ <%= render 'form', task: @task %>
 
-<%= link_to '一覧に戻る', tasks_path %>
+ <%= link_to '一覧に戻る', tasks_path %>
+<% end %>
