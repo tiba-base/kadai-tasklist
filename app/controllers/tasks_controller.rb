@@ -32,7 +32,6 @@ class TasksController < ApplicationController
     end
     
     def update
-        
         if @task.update(message_params)
            flash[:success] = 'タスクは正常に更新されました'
            redirect_to root_url
