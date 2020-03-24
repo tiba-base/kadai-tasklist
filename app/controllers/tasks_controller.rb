@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
-    before_action :correct_user, only: [:destroy]
+    before_action :correct_user, only: [:show, :update, :destroy]
     before_action :set_task, only: [:show, :edit, :update, :destroy]
-    before_action :require_user_logged_in, 
+    before_action :require_user_logged_in, only: [:index, :show]
     
     def index
         if logged_in?
@@ -10,6 +10,7 @@ class TasksController < ApplicationController
     end
     
     def show
+        
     end
     
     def new
@@ -57,7 +58,7 @@ private
     end
     
     def set_task
-        @task =  @task = Task.find(params[:id])
+        @task = Task.find(params[:id])
     end
 #Storong Parameter
     def message_params
