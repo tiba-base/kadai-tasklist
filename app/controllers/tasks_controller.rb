@@ -1,8 +1,7 @@
 class TasksController < ApplicationController
-    before_action :correct_user, only: [:show, :update, :destroy]
+    before_action :require_user_logged_in, only: [:index, :show, :new, :edit]
+    before_action :correct_user, only: [:show, :edit, :update, :destroy]
     before_action :set_task, only: [:show, :edit, :update, :destroy]
-    before_action :require_user_logged_in, only: [:index, :show]
-    
     def index
         if logged_in?
          @tasks = current_user.tasks
@@ -30,6 +29,7 @@ class TasksController < ApplicationController
     end
     
     def edit
+
     end
     
     def update
